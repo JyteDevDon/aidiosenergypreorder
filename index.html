@@ -60,6 +60,13 @@
 }
 </style>
 
+<style>
+/* --- Aidios Bridgeway Status Badge Overrides (Added) --- */
+.status-badge .pulse-dot.ab-dot-red{
+  background: rgba(255, 60, 60, 0.95) !important;
+  box-shadow: 0 0 0 0 rgba(255, 60, 60, 0.70) !important;
+}
+</style>
 </head>
 
   <body>
@@ -474,6 +481,7 @@
 
       if (!res.ok) {
         if (pctEl) pctEl.textContent = "Unable to load slot availability";
+        updateStatusBadge(null);
         return null;
       }
 
@@ -487,7 +495,11 @@
 
       
 
-      updateStatusBadge(closed);
+      
+
+      // Update top-of-page availability badge
+      updateStatusBadge(data);
+updateStatusBadge(closed);
 return data;
     } catch (e) {
       if (pctEl) pctEl.textContent = "Unable to load slot availability";
